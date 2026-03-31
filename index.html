@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuickBite — Food Delivery</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"/>
+</head>
+<body>
+
+<!-- ─── SPLASH SCREEN ──────────────────────────────────────────────── -->
+<div id="splash">
+  <div class="splash-inner">
+    <div class="splash-logo">🍔</div>
+    <h1>QuickBite</h1>
+    <p>Cravings delivered fast</p>
+    <div class="splash-loader"><span></span></div>
+  </div>
+</div>
+
+<!-- ─── APP SHELL ──────────────────────────────────────────────────── -->
+<div id="app" class="hidden">
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="header-inner">
+      <div class="header-left">
+        <button class="menu-btn" id="menuBtn">☰</button>
+        <div class="brand">🍔 QuickBite</div>
+      </div>
+      <div class="header-center">
+        <div class="location-pill" id="locationPill">
+          <span class="loc-icon">📍</span>
+          <span id="locationText">Jalandhar, Punjab</span>
+          <span class="chevron">▾</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="icon-btn" id="searchToggle" title="Search">🔍</button>
+        <button class="icon-btn" id="cartBtn" title="Cart">
+          🛒 <span class="badge" id="cartBadge">0</span>
+        </button>
+        <div class="avatar" id="avatarBtn">S</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SEARCH BAR (slide-down) -->
+  <div class="search-bar" id="searchBar">
+    <div class="search-bar-inner">
+      <input type="text" id="searchInput" placeholder="Search for food, cuisines…"/>
+      <button id="clearSearch">✕</button>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="overlay" id="overlay"></div>
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="avatar large">S</div>
+      <div>
+        <div class="sb-name">Simran Kaur</div>
+        <div class="sb-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3b485256495a557b4a4e52585059524f5e155255">[email&#160;protected]</a></div>
+      </div>
+    </div>
+    <ul class="sb-menu">
+      <li class="sb-item active" data-page="home"><span>🏠</span> Home</li>
+      <li class="sb-item" data-page="orders"><span>📦</span> My Orders</li>
+      <li class="sb-item" data-page="favourites"><span>❤️</span> Favourites</li>
+      <li class="sb-item" data-page="profile"><span>👤</span> Profile</li>
+      <li class="sb-item" data-page="offers"><span>🏷️</span> Offers</li>
+      <li class="sb-divider"></li>
+      <li class="sb-item" id="chatbotSideBtn"><span>🤖</span> AI Assistant</li>
+      <li class="sb-item logout"><span>🚪</span> Logout</li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main id="main">
+
+    <!-- ── PAGE: HOME ─────────────────────────────────────────────── -->
+    <section class="page active" id="page-home">
+
+      <!-- HERO BANNER -->
+      <div class="hero-wrap">
+        <div class="hero-banner">
+          <div class="hero-text">
+            <p class="hero-sub">Order now, eat soon 🚀</p>
+            <h2>Hungry? We've<br/>got you covered.</h2>
+            <button class="btn-primary" onclick="scrollToRestaurants()">Browse Restaurants</button>
+          </div>
+          <div class="hero-img">🍕🍜🍣🥗</div>
+        </div>
+      </div>
+
+      <!-- PLATFORM SELECTOR -->
+      <div class="section-block">
+        <div class="section-header">
+          <h3>Delivery Platform</h3>
+          <span class="section-sub">Choose your preferred service</span>
+        </div>
+        <div class="platform-row" id="platformRow"></div>
+      </div>
+
+      <!-- CATEGORY FILTER -->
+      <div class="section-block">
+        <div class="section-header">
+          <h3>What are you craving?</h3>
+        </div>
+        <div class="category-row" id="categoryRow"></div>
+      </div>
+
+      <!-- PROMO BANNERS -->
+      <div class="section-block">
+        <div class="promo-row" id="promoRow"></div>
+      </div>
+
+      <!-- RESTAURANTS -->
+      <div class="section-block">
+        <div class="section-header" id="restaurantHeader">
+          <h3 id="restaurantSectionTitle">Top Restaurants</h3>
+          <button class="see-all">See all</button>
+        </div>
+        <div class="restaurant-grid" id="restaurantGrid"></div>
+      </div>
+
+    </section>
+
+    <!-- ── PAGE: RESTAURANT DETAIL ───────────────────────────────── -->
+    <section class="page" id="page-restaurant">
+      <div class="back-bar-outer">
+        <div class="back-bar">
+          <button class="back-btn" onclick="goHome()">← Back</button>
+          <span id="restaurantPageName"></span>
+        </div>
+      </div>
+      <div id="restaurantDetail"></div>
+    </section>
+
+    <!-- ── PAGE: CART ────────────────────────────────────────────── -->
+    <section class="page" id="page-cart">
+      <div class="back-bar-outer">
+        <div class="back-bar">
+          <button class="back-btn" onclick="goHome()">← Back</button>
+          <span>Your Cart</span>
+        </div>
+      </div>
+      <div id="cartContent"></div>
+    </section>
+
+    <!-- ── PAGE: CHECKOUT ────────────────────────────────────────── -->
+    <section class="page" id="page-checkout">
+      <div class="back-bar-outer">
+        <div class="back-bar">
+          <button class="back-btn" onclick="showPage('cart')">← Back</button>
+          <span>Checkout</span>
+        </div>
+      </div>
+      <div id="checkoutContent"></div>
+    </section>
+
+    <!-- ── PAGE: TRACKING ────────────────────────────────────────── -->
+    <section class="page" id="page-tracking">
+      <div id="trackingContent"></div>
+    </section>
+
+    <!-- ── PAGE: ORDERS ──────────────────────────────────────────── -->
+    <section class="page" id="page-orders">
+      <div class="page-hero">
+        <h2>My Orders</h2>
+        <p>Your order history</p>
+      </div>
+      <div id="ordersContent"></div>
+    </section>
+
+    <!-- ── PAGE: FAVOURITES ──────────────────────────────────────── -->
+    <section class="page" id="page-favourites">
+      <div class="page-hero">
+        <h2>Favourites ❤️</h2>
+        <p>Your saved restaurants</p>
+      </div>
+      <div id="favouritesContent"></div>
+    </section>
+
+    <!-- ── PAGE: PROFILE ─────────────────────────────────────────── -->
+    <section class="page" id="page-profile">
+      <div id="profileContent"></div>
+    </section>
+
+    <!-- ── PAGE: OFFERS ──────────────────────────────────────────── -->
+    <section class="page" id="page-offers">
+      <div class="page-hero">
+        <h2>Offers & Deals 🏷️</h2>
+        <p>Exclusive deals just for you</p>
+      </div>
+      <div id="offersContent"></div>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <button class="bnav-item active" data-page="home">
+      <span class="bnav-icon">🏠</span><span class="bnav-label">Home</span>
+    </button>
+    <button class="bnav-item" data-page="orders">
+      <span class="bnav-icon">📦</span><span class="bnav-label">Orders</span>
+    </button>
+    <button class="bnav-item" id="cartNavBtn">
+      <span class="bnav-icon">🛒</span><span class="bnav-label">Cart</span>
+    </button>
+    <button class="bnav-item" data-page="favourites">
+      <span class="bnav-icon">❤️</span><span class="bnav-label">Saved</span>
+    </button>
+    <button class="bnav-item" data-page="profile">
+      <span class="bnav-icon">👤</span><span class="bnav-label">Profile</span>
+    </button>
+  </nav>
+
+  <!-- CHATBOT FAB -->
+  <button class="chatbot-fab" id="chatbotFab" title="Chat with AI">
+    <span class="fab-icon">🤖</span>
+    <span class="fab-pulse"></span>
+  </button>
+
+  <!-- CHATBOT PANEL -->
+  <div class="chatbot-panel" id="chatbotPanel">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">🤖</div>
+        <div>
+          <div class="chat-title">QuickBite AI</div>
+          <div class="chat-status">Powered by IBM Watson</div>
+        </div>
+      </div>
+      <button class="chat-close" id="chatClose">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-bubble bot">
+        <div class="bubble-text">👋 Hi! I'm your QuickBite AI assistant. I can help you find restaurants, track orders, or apply coupons. How can I help?</div>
+        <div class="bubble-time">now</div>
+      </div>
+    </div>
+    <div class="chat-suggestions" id="chatSuggestions">
+      <button class="suggest-pill" onclick="sendQuickMsg('Find me a pizza restaurant')">🍕 Pizza near me</button>
+      <button class="suggest-pill" onclick="sendQuickMsg('Track my order')">📦 Track order</button>
+      <button class="suggest-pill" onclick="sendQuickMsg('Show me offers')">🏷️ Offers</button>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Type a message…"/>
+      <button class="chat-send" id="chatSend">➤</button>
+    </div>
+    <!-- IBM WATSON INTEGRATION POINT -->
+    <div class="ibm-badge">Integrate IBM Watson here ↑</div>
+  </div>
+
+</div><!-- /app -->
+
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
