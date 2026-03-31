@@ -570,8 +570,8 @@ function renderProfile() {
   document.getElementById('profileContent').innerHTML = `
     <div class="profile-hero">
       <div class="profile-avatar">S</div>
-      <h2>Simran Kaur</h2>
-      <p>simran@quickbite.in · +91 98765 43210</p>
+      <h2>Raghuveer Sain</h2>
+      <p>raghuveer@quickbite.in · +91 98765 43210</p>
     </div>
     <div class="profile-section">
       <div class="profile-stat-row">
@@ -582,7 +582,7 @@ function renderProfile() {
     </div>
     <div class="profile-section">
       <div class="profile-row"><span>🏠</span><div><div class="pr-label">Home Address</div><div class="pr-val">${state.orderAddress}</div></div></div>
-      <div class="profile-row"><span>💳</span><div><div class="pr-label">Saved Payment</div><div class="pr-val">UPI · simran@upi</div></div></div>
+      <div class="profile-row"><span>💳</span><div><div class="pr-label">Saved Payment</div><div class="pr-val">UPI · raghuveer@upi</div></div></div>
       <div class="profile-row"><span>🔔</span><div><div class="pr-label">Notifications</div><div class="pr-val">Enabled</div></div></div>
     </div>
     <div class="profile-section">
