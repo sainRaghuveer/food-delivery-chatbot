@@ -228,7 +228,7 @@ const COUPONS = [
   { code: 'FIRST50', discount: 50, type: 'percent', minOrder: 199, desc: '50% OFF on your first order' },
   { code: 'FREEDEL', discount: 0,  type: 'delivery', minOrder: 299, desc: 'Free delivery on orders above ₹299' },
   { code: 'WKND30', discount: 30,  type: 'percent', minOrder: 399, desc: '30% OFF this weekend' },
-  { code: 'QB100',  discount: 100, type: 'flat',    minOrder: 499, desc: 'Flat ₹100 off on orders above ₹499' },
+  { code: 'DS100',  discount: 100, type: 'flat',    minOrder: 499, desc: 'Flat ₹100 off on orders above ₹499' },
   { code: 'SAVE20', discount: 20,  type: 'percent', minOrder: 249, desc: '20% off on selected restaurants' },
 ];
 
@@ -268,7 +268,7 @@ const PAST_ORDERS = [
 const OFFERS = [
   { title: '50% OFF', sub: 'First order on Swiggy', code: 'FIRST50', color: '#FF6B35', icon: '🎉', valid: 'Till 31st Dec 2025' },
   { title: 'FREE DELIVERY', sub: 'All orders above ₹299', code: 'FREEDEL', color: '#00B4D8', icon: '🚀', valid: 'Always active' },
-  { title: '30% OFF', sub: 'Weekend Special', code: 'WKND30', color: '#7B2FBE', icon: '🏷️', valid: 'Sat–Sun only' },
+  { title: '30% OFF', sub: 'Weekend Special', code: 'WKND30', color: '#7B2FBE', icon: '🏷️', valid: 'Sat-Sun only' },
   { title: '₹100 FLAT OFF', sub: 'Orders above ₹499', code: 'QB100', color: '#E23744', icon: '💰', valid: 'Limited time' },
   { title: '20% OFF', sub: 'Selected restaurants', code: 'SAVE20', color: '#00A859', icon: '✨', valid: 'This week' },
 ];
