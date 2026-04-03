@@ -6,6 +6,7 @@ const PLATFORMS = [
   { id: 'swiggy', name: 'Swiggy',    icon: '🟠', color: '#FC8019' },
   { id: 'magicpin',name:'MagicPin',  icon: '💜', color: '#7B2FBE' },
   { id: 'eatsure',name: 'EatSure',   icon: '🟢', color: '#00A859' },
+  { id: 'zepto',name: 'Zepto',   icon: '📍', color: '#113a27' },
 ];
 
 const CATEGORIES = [
