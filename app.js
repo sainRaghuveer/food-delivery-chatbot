@@ -1,6 +1,3 @@
-// ─── APP.JS — QuickBite Main Logic ──────────────────────────────────
-
-// ── STATE ──────────────────────────────────────────────────────────
 const state = {
   cart: [],
   activePlatform: 'all',
