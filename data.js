@@ -23,9 +23,9 @@ const CATEGORIES = [
 ];
 
 const PROMOS = [
-  { title: '50% OFF',    sub: 'First order on Swiggy',     color: '#FF6B35', icon: '🎉', code: 'FIRST50' },
+  { title: 'Up to 50% OFF',    sub: 'First order on Swiggy',     color: '#FF6B35', icon: '🎉', code: 'FIRST50' },
   { title: 'FREE DELIVERY', sub: 'Orders above ₹299',      color: '#00B4D8', icon: '🚀', code: 'FREEDEL' },
-  { title: '30% OFF',    sub: 'Weekend special deal',       color: '#7B2FBE', icon: '🏷️', code: 'WKND30' },
+  { title: 'Up to 25% OFF',    sub: 'Weekend special deal',       color: '#7B2FBE', icon: '🏷️', code: 'WKND30' },
 ];
 
 const RESTAURANTS = [
