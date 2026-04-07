@@ -127,7 +127,7 @@ const RESTAURANTS = [
       { id: 404, name: "Veg Biryani", desc: "Mixed vegetables, basmati, kewra", price: 249, image: "🍲", category: "Biryani", veg: true, bestseller: false, rating: 4.3 },
       { id: 405, name: "Garlic Naan (x2)", desc: "Tandoor-baked with garlic butter", price: 79, image: "🫓", category: "Breads", veg: true, bestseller: false, rating: 4.4 },
       { id: 406, name: "Paneer Tikka Masala", desc: "Cottage cheese in spiced tomato gravy", price: 279, image: "🧀", category: "Mains", veg: true, bestseller: false, rating: 4.5 },
-      { id: 407, name: "Raita", desc: "Yogurt with cucumber, cumin", price: 59, image: "🥣", category: "Sides", veg: true, bestseller: false, rating: 4.0 },
+      { id: 407, name: "Boondi Raita", desc: "Yogurt with cucumber, cumin", price: 59, image: "🥣", category: "Sides", veg: true, bestseller: false, rating: 4.0 },
     ]
   },
   {
