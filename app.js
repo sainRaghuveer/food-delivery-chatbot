@@ -879,7 +879,7 @@ function toast(msg, bg = '#333') {
   Toastify({
     text: msg,
     duration: 2800,
-    gravity: 'top',
+    gravity: 'bottom',
     position: 'right',
     style: { background: bg, borderRadius: '12px', fontFamily: 'DM Sans, sans-serif', fontSize: '14px', fontWeight: '500', boxShadow: '0 4px 20px rgba(0,0,0,0.15)' },
   }).showToast();
