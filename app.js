@@ -822,7 +822,7 @@ function removeTypingIndicator() {
 }
 
 // ── IBM Watson Integration Point ────────────────────────────────────
-// Replace this function with your IBM Watson Assistant API call
+// Need to replace this function with IBM Watson Assistant API call
 // Example: POST to https://api.us-south.assistant.watson.cloud.ibm.com/instances/{id}/v2/assistants/{assistant_id}/sessions/{session_id}/message
 function getBotReply(msg) {
   const m = msg.toLowerCase();
@@ -853,7 +853,7 @@ function getBotReply(msg) {
   return '🤖 I\'m here to help! Ask me about restaurants, cuisines, offers, or tracking your order. (Connect IBM Watson API for full AI experience!)';
 }
 
-// ── CONFIRM DIALOG ─────────────────────────────────────────────────
+// ── CONFIRM DIALOG ───────────────────────────────────────────────
 function showConfirmDialog(title, msg, onConfirm) {
   const overlay = document.createElement('div');
   overlay.className = 'dialog-overlay';
